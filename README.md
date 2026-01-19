@@ -64,25 +64,17 @@
     "default_rate": 0.018,        // 默认利润费率
     "report_interval_hour": 1     // 自动推送战报的时间间隔
 }
-📦 Telegram 消息预览
-💰 新订单到达
-━━━━━━━━━━━━
-💵 金额：¥100.00
-👤 收款：王**
-👤 付款：李四
-📑 方式：支付宝
-🎁 原始返点：¥2.50
-💹 净利：¥1.80
-📑 ID：ORD20260119XXXX (点击可复制)
-🏃 快速开始
-1. 克隆仓库
-git clone [https://github.com/your-username/colorwin-monitor.git](https://github.com/your-username/colorwin-monitor.git)
-cd colorwin-monitor
-2. 安装依赖
-pip install PyQt6 pandas requests urllib3
-3. 启动监听
-python ColorWin_Monitor_Final.py
-🛡️ License
-本项目基于 MIT License 许可协议。
+---
 
-Built with ❤️ for ColorWin System | Final Standard 2026
+## ⚙️ 配置文件说明 (config.json)
+
+脚本首次运行将自动生成配置文件，您可以根据需求调整参数。请注意，系统会自动识别 JSON 格式：
+
+```json
+{
+    "tg_enable": true,            // 是否开启 Telegram 推送
+    "tg_token": "YOUR_BOT_TOKEN", // TG 机器人令牌
+    "tg_chat_id": "YOUR_CHAT_ID", // 接收推送的 ID
+    "default_rate": 0.018,        // 默认利润费率 (0.018 = 1.8%)
+    "report_interval_hour": 1     // 自动推送战报的时间间隔 (小时)
+}
