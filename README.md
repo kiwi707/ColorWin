@@ -107,6 +107,10 @@
 ├── clash_balance.json         # 余额 / 费率数据
 └── clash_history.json         # 历史订单数据
 
+⚙️ 配置说明（config.json）
+
+程序首次启动会自动生成：
+
 {
   "tg_enable": true,
   "tg_token": "YOUR_TELEGRAM_BOT_TOKEN",
@@ -114,4 +118,67 @@
   "default_rate": 0.018,
   "report_interval_hour": 1
 }
+| 参数                   | 说明                 |
+| -------------------- | ------------------ |
+| tg_enable            | 是否启用 Telegram 推送   |
+| tg_token             | Telegram 机器人 Token |
+| tg_chat_id           | 接收消息的 Chat ID      |
+| default_rate         | 默认费率               |
+| report_interval_hour | 战报推送间隔（小时）         |
 
+
+🚀 快速开始
+环境要求
+
+Windows 10 / 11
+
+Python ≥ 3.9
+
+安装依赖
+pip install pyqt6 pandas requests urllib3
+启动程序
+python ColorWin_Monitor_Final.py
+程序启动后将 窗口置顶，自动进入监听状态。
+🔐 安全性与稳定性
+
+完全本地运行
+
+不主动请求任何业务接口
+
+Telegram 推送可关闭
+
+文件监听式解耦设计
+
+全局异常隔离，适合长期运行
+
+🎯 适用场景
+
+高频人工核销订单
+
+实时资金流水监控
+
+对账与收益统计
+
+对「漏单」零容忍的业务环境
+
+🧠 设计理念
+
+系统的职责不是展示数据，而是提醒人。
+
+视觉 + 语音 + 远程推送三重保障
+
+界面设计服务于“警觉性”
+
+任何关键状态都不允许被忽略
+
+📜 使用说明
+
+仅供学习与内部使用
+请遵守当地法律法规
+
+<div align="center">
+
+⭐ 如果这个项目对你有帮助，欢迎 Star
+也欢迎 Fork 与二次开发
+
+</div> ```
