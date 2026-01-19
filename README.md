@@ -1,184 +1,58 @@
-<div align="center">
+# ⚡ ColorWin Monitor Pro 
+> **Standard Version: ColorWin_Monitor_Final.py**
 
-# 🧠 ColorWin Monitor Pro
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+[![Framework](https://img.shields.io/badge/framework-PyQt6-green.svg)](https://www.riverbankcomputing.com/software/pyqt/)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078d7.svg)](https://www.microsoft.com/windows)
+[![License](https://img.shields.io/badge/license-MIT-important.svg)](https://opensource.org/licenses/MIT)
 
-### 实时订单监听 · 自动对账 · 语音播报 · Telegram 推送 · 可视化监控面板
-
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![PyQt6](https://img.shields.io/badge/PyQt6-GUI-green)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
-![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen)
-
-</div>
+**ColorWin Monitor Pro** 是一款专为高频订单处理设计的实时监控与资产管理系统。它不仅拥有极客风的 UI 界面，还集成了自动化语音调度、动态催单提醒及隐私保护逻辑。
 
 ---
 
-## 🚀 项目简介
+## 📸 界面预览 (UI Gallery)
 
-**ColorWin Monitor Pro** 是一套基于 **Python + PyQt6** 的  
-**本地实时订单监听与收益监控系统**。
-
-系统通过监听本地 JSON 数据源，实现对订单生命周期的全流程监控，并以  
-**可视化界面 + 语音提醒 + Telegram 推送** 的方式，确保关键事件不被遗漏。
-
-> 设计目标：**低延迟 · 不漏单 · 强提醒 · 长时间稳定运行**
+| 实时监控主界面 | 历史流水数据中心 |
+| :---: | :---: |
+| ![Main UI](https://via.placeholder.com/300x500?text=Order+Card+With+Urge+Tag) | ![History UI](https://via.placeholder.com/300x500?text=History+Data+Center) |
+| *支持催单高亮显示与呼吸灯监听状态* | *支持今日累计净利润统计与全量导出* |
 
 ---
 
-## ✨ 核心功能
+## ✨ 核心特性
 
-### 🔴 实时订单监听
-- 监听订单 / 核销 / 余额 / 历史数据文件
-- 1 秒级 UI 刷新
-- 订单去重与状态追踪
-- 自动识别催单、超时、消失订单
+### 🚀 智能监控逻辑
+- **实时同步**：每秒毫秒级轮询系统 JSON 数据，确保订单 0 延迟显示。
+- **催单强提醒**：订单卡片集成 `⚠️ 对方已催单` 红色动态标签，视觉冲击力极强。
+- **置顶悬浮**：默认开启窗口置顶，一边刷网页一边看单，两不误。
 
----
+### 🎙️ 自动化全能语音 (TTS)
+- **多维度播报**：新订单到达时自动朗读：`金额` + `支付方式` + `收款人` + `付款人`。
+- **动态循环**：对未处理订单每 30 秒进行一次催单语音预警。
+- **核销反馈**：核销成功即刻语音确认，无需反复查看屏幕。
 
-### 💰 利润与费率引擎
-- 动态费率（实时读取余额文件）
-- 自动计算：
-  - 原始返点
-  - 单笔净利润
-  - 今日累计净利润
-- 核心数据加密显示（点击解锁）
+### 🛡️ 隐私与安全
+- **数据混淆**：利润、原始返点采用 Hacker 风格的乱码滚动动画显示。
+- **点击查阅**：敏感数据仅在点击后显示 5 秒，随后自动加密，有效防止旁人窥屏。
 
----
-
-### 🗣️ 语音播报系统（Windows）
-- 新订单到达提醒
-- 催单语音提示
-- 核销成功播报
-- 定时未处理订单提醒
-
-> 基于 Windows `System.Speech.Synthesis`  
-> 无需第三方 TTS 服务
+### 📊 资产对账
+- **自动对账单**：每日自动生成 `utf-8-sig` 编码的 CSV 报表，Excel 打开即看。
+- **利润计算**：根据动态费率自动计算每笔净利润，实时汇总今日总收成。
 
 ---
 
-### 📲 Telegram 推送通知
-- 新订单推送
-- 催单预警
-- 核销成功通知
-- 订单超时提醒
-- 整点 / 手动经营战报
+## 🛠️ 技术栈
 
-支持 HTML 格式，信息清晰、阅读友好。
+- **GUI**: PyQt6 (高性能异步 UI 框架)
+- **Data**: Pandas (用于高效 CSV 数据处理)
+- **Voice**: Windows PowerShell System.Speech (原生驱动，无需第三方 API)
+- **Architecture**: 多线程异步架构 (主线程 UI + 语音线程 + 轮询线程)
 
 ---
 
-### 📊 经营战报面板
-- 实时统计：
-  - 今日总业绩
-  - 各收款人交易笔数
-  - 累计交易金额
-  - 总净利润
-- 支持一键推送 Telegram
-- 支持定时自动推送
+## 🏃 快速开始
 
----
-
-### 🧾 自动对账与历史记录
-- 每日自动生成 CSV 对账单  
-  `对账单_YYYY_MM_DD.csv`
-- 自动补录历史订单
-- GUI 查看「今日全量流水」
-
----
-
-### 🖥️ 高可视化 UI 设计
-- 深色黑客风界面
-- 呼吸灯运行状态指示
-- 催单高亮标识
-- 核心信息遮罩保护
-- 一键复制辅助操作
-
----
-
-## 🧱 项目结构
-
-```text
-.
-├── ColorWin_Monitor_Final.py   # 主程序
-├── config.json                # 配置文件（自动生成）
-├── 对账单_YYYY_MM_DD.csv       # 每日对账单
-├── clash_orders.json          # 实时订单数据源
-├── clash_confirm.json         # 核销信号文件
-├── clash_balance.json         # 余额 / 费率数据
-└── clash_history.json         # 历史订单数据
-
-⚙️ 配置说明（config.json）
-
-程序首次启动会自动生成：
-
-{
-  "tg_enable": true,
-  "tg_token": "YOUR_TELEGRAM_BOT_TOKEN",
-  "tg_chat_id": "YOUR_CHAT_ID",
-  "default_rate": 0.018,
-  "report_interval_hour": 1
-}
-| 参数                   | 说明                 |
-| -------------------- | ------------------ |
-| tg_enable            | 是否启用 Telegram 推送   |
-| tg_token             | Telegram 机器人 Token |
-| tg_chat_id           | 接收消息的 Chat ID      |
-| default_rate         | 默认费率               |
-| report_interval_hour | 战报推送间隔（小时）         |
-
-
-🚀 快速开始
-环境要求
-
-Windows 10 / 11
-
-Python ≥ 3.9
-
-安装依赖
-pip install pyqt6 pandas requests urllib3
-启动程序
-python ColorWin_Monitor_Final.py
-程序启动后将 窗口置顶，自动进入监听状态。
-🔐 安全性与稳定性
-
-完全本地运行
-
-不主动请求任何业务接口
-
-Telegram 推送可关闭
-
-文件监听式解耦设计
-
-全局异常隔离，适合长期运行
-
-🎯 适用场景
-
-高频人工核销订单
-
-实时资金流水监控
-
-对账与收益统计
-
-对「漏单」零容忍的业务环境
-
-🧠 设计理念
-
-系统的职责不是展示数据，而是提醒人。
-
-视觉 + 语音 + 远程推送三重保障
-
-界面设计服务于“警觉性”
-
-任何关键状态都不允许被忽略
-
-📜 使用说明
-
-仅供学习与内部使用
-请遵守当地法律法规
-
-<div align="center">
-
-⭐ 如果这个项目对你有帮助，欢迎 Star
-也欢迎 Fork 与二次开发
-
-</div> ```
+### 1. 克隆仓库
+```bash
+git clone [https://github.com/your-username/colorwin-monitor.git](https://github.com/your-username/colorwin-monitor.git)
+要这个样式的 
