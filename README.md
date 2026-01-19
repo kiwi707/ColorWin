@@ -1,4 +1,4 @@
-# ⚡ ColorWin Monitor Pro 
+# ⚡ ColorWin Monitor Pro 
 > **Standard Version: ColorWin_Monitor_Final.py**
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
@@ -23,36 +23,74 @@
 
 ### 🚀 智能监控逻辑
 - **实时同步**：每秒毫秒级轮询系统 JSON 数据，确保订单 0 延迟显示。
-- **催单强提醒**：订单卡片集成 `⚠️ 对方已催单` 红色动态标签，视觉冲击力极强。
-- **置顶悬浮**：默认开启窗口置顶，一边刷网页一边看单，两不误。
+- **催单强提醒**：**[NEW]** 自动捕获 `state=1` 信号，首页卡片即刻点亮 `⚠️ 催单` 标签并追加红色标注。
+- **状态感知**：自动处理“待处理、已核销、已超时”三种业务状态，UI 自动增删。
 
 ### 🎙️ 自动化全能语音 (TTS)
-- **多维度播报**：新订单到达时自动朗读：`金额` + `支付方式` + `收款人` + `付款人`。
-- **动态循环**：对未处理订单每 30 秒进行一次催单语音预警。
-- **核销反馈**：核销成功即刻语音确认，无需反复查看屏幕。
+- **多维度播报**：新订单到达自动朗读金额、收款人及付款人详情。
+- **动态循环**：针对未核销订单，每 30 秒进行一次周期性语音催单预警。
+- **核销确认**：订单核销成功后，即刻同步语音反馈，无需反复确认屏幕。
 
-### 🛡️ 隐私与安全
-- **数据混淆**：利润、原始返点采用 Hacker 风格的乱码滚动动画显示。
-- **点击查阅**：敏感数据仅在点击后显示 5 秒，随后自动加密，有效防止旁人窥屏。
+### 🛡️ 隐私与安全 (Hacker Style)
+- **数据混淆**：利润、原始返点采用随机滚动的 `DATA ENCRYPTED` 动画覆盖。
+- **限时查阅**：敏感数据点击后仅显示 5 秒，随后自动归于加密状态，防止窥屏。
+- **一键脱敏**：付款人姓名支持点击快速复制末位字符，兼顾便捷与隐私。
 
-### 📊 资产对账
-- **自动对账单**：每日自动生成 `utf-8-sig` 编码的 CSV 报表，Excel 打开即看。
-- **利润计算**：根据动态费率自动计算每笔净利润，实时汇总今日总收成。
+### 📊 资产对账与推送
+- **全字段推送**：Telegram 机器人实时推送新单，包含金额、收款、付款、方式、原始返点、净利润及订单 ID。
+- **自动对账单**：每日自动生成 `utf-8-sig` 编码的 CSV 报表，完美兼容 Excel 统计。
+- **整点战报**：支持手动或定时向 Telegram 频道发送今日经营业绩汇总。
 
 ---
 
 ## 🛠️ 技术栈
 
-- **GUI**: PyQt6 (高性能异步 UI 框架)
-- **Data**: Pandas (用于高效 CSV 数据处理)
-- **Voice**: Windows PowerShell System.Speech (原生驱动，无需第三方 API)
-- **Architecture**: 多线程异步架构 (主线程 UI + 语音线程 + 轮询线程)
+- **GUI**: PyQt6 (高性能异步 UI 框架，支持自定义 QObject 通讯)
+- **Data**: Pandas (用于高效 CSV 数据读写与流水分析)
+- **Network**: Requests (异步集成 Telegram Bot API)
+- **Voice**: Windows PowerShell System.Speech (原生驱动，无延迟语音合成)
 
 ---
 
-## 🏃 快速开始
+## ⚙️ 配置文件说明 (config.json)
 
-### 1. 克隆仓库
-```bash
+脚本首次运行将自动生成配置文件，您可以根据需求调整参数：
+
+```json
+{
+    "tg_enable": true,            // 是否开启 Telegram 推送
+    "tg_token": "YOUR_BOT_TOKEN", // TG 机器人令牌
+    "tg_chat_id": "YOUR_CHAT_ID", // 接收推送的 ID
+    "default_rate": 0.018,        // 默认利润费率
+    "report_interval_hour": 1     // 自动推送战报的时间间隔
+}
+📦 Telegram 消息预览
+Plaintext
+
+💰 新订单到达
+━━━━━━━━━━━━
+💵 金额：¥100.00
+👤 收款：王**
+👤 付款：李四
+📑 方式：支付宝
+🎁 原始返点：¥2.50
+💹 净利：¥1.80
+📑 ID：ORD20260119XXXX (点击可复制)
+🏃 快速开始
+1. 克隆仓库
+Bash
+
 git clone [https://github.com/your-username/colorwin-monitor.git](https://github.com/your-username/colorwin-monitor.git)
-要这个样式的 
+cd colorwin-monitor
+2. 安装依赖
+Bash
+
+pip install PyQt6 pandas requests urllib3
+3. 启动监听
+Bash
+
+python ColorWin_Monitor_Final.py
+🛡️ License
+本项目基于 MIT License 许可协议。
+
+Built with ❤️ for ColorWin System | Final Standard 2026
