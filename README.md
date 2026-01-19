@@ -4,54 +4,46 @@
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/framework-PyQt6-green.svg)](https://www.riverbankcomputing.com/software/pyqt/)
 [![Platform](https://img.shields.io/badge/platform-Windows-0078d7.svg)](https://www.microsoft.com/windows)
-[![License](https://img.shields.io/badge/license-MIT-important.svg)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/status-stable-00ff41.svg)](https://github.com/)
 
-**ColorWin Monitor Pro** 是一款专为高频订单处理设计的实时监控与资产管理系统。它不仅拥有极客风的 UI 界面，还集成了自动化语音调度、动态催单提醒及隐私保护逻辑。
-
----
-
-## 📸 界面预览 (UI Gallery)
-
-| 实时监控主界面 | 历史流水数据中心 |
-| :---: | :---: |
-| ![Main UI](https://via.placeholder.com/300x500?text=Order+Card+With+Urge+Tag) | ![History UI](https://via.placeholder.com/300x500?text=History+Data+Center) |
-| *支持催单高亮显示与呼吸灯监听状态* | *支持今日累计净利润统计与全量导出* |
+**ColorWin Monitor Pro** 是一款专为高频交易设计的实时订单监控与自动化对账系统。它不仅拥有黑客风格的 UI，还深度集成了 Telegram 机器人指令、语音合成播报及敏感数据隐私保护逻辑。
 
 ---
 
-## ✨ 核心特性
+## 📸 界面特性 (UI Features)
 
-### 🚀 智能监控逻辑
-- **实时同步**：每秒毫秒级轮询系统 JSON 数据，确保订单 0 延迟显示。
-- **催单强提醒**：订单卡片集成 `⚠️ 对方已催单` 红色动态标签，视觉冲击力极强。
-- **置顶悬浮**：默认开启窗口置顶，一边刷网页一边看单，两不误。
-
-### 🎙️ 自动化全能语音 (TTS)
-- **多维度播报**：新订单到达时自动朗读：`金额` + `支付方式` + `收款人` + `付款人`。
-- **动态循环**：对未处理订单每 30 秒进行一次催单语音预警。
-- **核销反馈**：核销成功即刻语音确认，无需反复查看屏幕。
-
-### 🛡️ 隐私与安全
-- **数据混淆**：利润、原始返点采用 Hacker 风格的乱码滚动动画显示。
-- **点击查阅**：敏感数据仅在点击后显示 5 秒，随后自动加密，有效防止旁人窥屏。
-
-### 📊 资产对账
-- **自动对账单**：每日自动生成 `utf-8-sig` 编码的 CSV 报表，Excel 打开即看。
-- **利润计算**：根据动态费率自动计算每笔净利润，实时汇总今日总收成。
+| 核心组件 | 功能描述 |
+| :--- | :--- |
+| **实时订单卡片** | 动态显示金额、付款方式，支持点击复制付款人末位字符。 |
+| **⚠️ 催单高亮** | **[NEW]** 自动检测 `state=1` 状态，实时点亮红色催单标签并同步语音提醒。 |
+| **Hacker Spoiler** | 原始返点与净利润默认以乱码加密显示，点击后限时 5 秒解锁。 |
+| **战报控制台** | 点击首页统计框可直接向 Telegram 推送今日经营实时战报。 |
 
 ---
 
-## 🛠️ 技术栈
+## ✨ 核心特性 (Key Features)
 
-- **GUI**: PyQt6 (高性能异步 UI 框架)
-- **Data**: Pandas (用于高效 CSV 数据处理)
-- **Voice**: Windows PowerShell System.Speech (原生驱动，无需第三方 API)
-- **Architecture**: 多线程异步架构 (主线程 UI + 语音线程 + 轮询线程)
+### 🚀 自动化通知体系
+- **Telegram 全量推送**：新订单到达时，自动发送包含金额、收款、付款、方式、返点、利润及订单 ID 的格式化消息。
+- **智能语音调度**：采用 PowerShell 原生 TTS 引擎，支持新单播报、核销确认及 30 秒周期性待处理提醒。
+- **订单 ID 追踪**：所有推送消息均包含 `<code>` 格式订单 ID，支持移动端一键点击复制。
+
+### 📊 精准对账系统
+- **自动对账单**：每日自动生成 `对账单_yyyy_mm_dd.csv`，兼容 Excel 直接开启。
+- **实时费率同步**：自动监听服务器 `rebate` 费率变动，实时重算净利润。
+- **历史中心**：内置数据中心弹窗，支持追溯今日最近 150 笔全量流水。
 
 ---
 
-## 🏃 快速开始
+## 📦 Telegram 推送预览
 
-### 1. 克隆仓库
-```bash
-git clone [https://github.com/your-username/colorwin-monitor.git](https://github.com/your-username/colorwin-monitor.git)
+```text
+💰 新订单到达
+━━━━━━━━━━━━
+💵 金额：¥100.00
+👤 收款：张三
+👤 付款：李四
+📑 方式：支付宝
+🎁 原始返点：¥2.50
+💹 净利：¥1.80
+📑 ID：ORD12345678
