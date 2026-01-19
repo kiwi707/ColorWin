@@ -65,8 +65,6 @@
     "report_interval_hour": 1     // 自动推送战报的时间间隔
 }
 📦 Telegram 消息预览
-Plaintext
-
 💰 新订单到达
 ━━━━━━━━━━━━
 💵 金额：¥100.00
@@ -78,17 +76,11 @@ Plaintext
 📑 ID：ORD20260119XXXX (点击可复制)
 🏃 快速开始
 1. 克隆仓库
-Bash
-
 git clone [https://github.com/your-username/colorwin-monitor.git](https://github.com/your-username/colorwin-monitor.git)
 cd colorwin-monitor
 2. 安装依赖
-Bash
-
 pip install PyQt6 pandas requests urllib3
 3. 启动监听
-Bash
-
 python ColorWin_Monitor_Final.py
 🛡️ License
 本项目基于 MIT License 许可协议。
