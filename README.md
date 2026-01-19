@@ -61,7 +61,7 @@
     "tg_enable": true,            // 是否开启 Telegram 推送
     "tg_token": "YOUR_BOT_TOKEN", // TG 机器人令牌
     "tg_chat_id": "YOUR_CHAT_ID", // 接收推送的 ID
-    "default_rate": 0.018,        // 默认利润费率
+    "default_rate": 0.062,        // 默认利润费率
     "report_interval_hour": 1     // 自动推送战报的时间间隔
 }
 ---
@@ -75,6 +75,6 @@
     "tg_enable": true,            // 是否开启 Telegram 推送
     "tg_token": "YOUR_BOT_TOKEN", // TG 机器人令牌
     "tg_chat_id": "YOUR_CHAT_ID", // 接收推送的 ID
-    "default_rate": 0.018,        // 默认利润费率 (0.018 = 1.8%)
+    "default_rate": 0.018,        // 默认利润费率 (0.062 = 6.2%)
     "report_interval_hour": 1     // 自动推送战报的时间间隔 (小时)
 }
