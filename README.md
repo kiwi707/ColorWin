@@ -106,3 +106,12 @@
 ├── clash_confirm.json         # 核销信号文件
 ├── clash_balance.json         # 余额 / 费率数据
 └── clash_history.json         # 历史订单数据
+
+{
+  "tg_enable": true,
+  "tg_token": "YOUR_TELEGRAM_BOT_TOKEN",
+  "tg_chat_id": "YOUR_CHAT_ID",
+  "default_rate": 0.018,
+  "report_interval_hour": 1
+}
+
