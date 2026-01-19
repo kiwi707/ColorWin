@@ -116,7 +116,7 @@
   "tg_enable": true,
   "tg_token": "YOUR_TELEGRAM_BOT_TOKEN",
   "tg_chat_id": "YOUR_CHAT_ID",
-  "default_rate": 0.018,
+  "default_rate": 0.062,
   "report_interval_hour": 1
 }
 | 字段                   | 说明                   |
@@ -124,7 +124,7 @@
 | tg_enable            | 是否启用 Telegram 推送     |
 | tg_token             | Telegram Bot Token   |
 | tg_chat_id           | 接收消息的 Chat ID        |
-| default_rate         | 默认费率（如 1.8% = 0.018） |
+| default_rate         | 默认费率（如 6.2% = 0.062） |
 | report_interval_hour | 自动战报间隔（小时）           |
 🚀 运行方式
 1️⃣ 环境要求
